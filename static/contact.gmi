@@ -1,0 +1,5 @@
+# WikDict - Contact
+
+Karl Bartel
+=> gemini://gmi.karl.berlin gmi.karl.berlin
+=> mailto:karl@karl.berlin karl@karl.berlin

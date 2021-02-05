@@ -1,0 +1,88 @@
+# WikDict
+
+WikDict provides free bilingual dictionaries for the web, geminispace and for download.
+
+With more than 6.6 million translations across 20 languages it provides one of the largest data bases of free translations.
+
+=> about.gmi About WikDict
+=> download.gmi Download Dictionaries
+=> contact.gmi Contact
+
+## Popular Language Pairs
+
+=> search/en-fr Search en-fr
+=> search/de-en Search de-en
+=> search/en-fi Search en-fi
+=> search/de-fr Search de-fr
+=> search/en-ru Search en-ru
+=> search/en-it Search en-it
+=> search/en-nl Search en-nl
+=> search/de-sv Search de-sv
+=> search/en-es Search en-es
+=> search/fr-it Search fr-it
+=> search/en-pl Search en-pl
+=> search/en-sv Search en-sv
+=> search/en-pt Search en-pt
+=> search/es-fr Search es-fr
+=> search/fr-nl Search fr-nl
+=> search/de-pl Search de-pl
+=> search/en-ja Search en-ja
+
+## Other Language Pairs
+
+Translations are always searched for in both directions, so de-nl and nl-de yield the same results. Therefore, each pair is listed only once.
+
+=> search/de-nl Search de-nl
+=> search/de-it Search de-it
+=> search/fr-pl Search fr-pl
+=> search/fr-sv Search fr-sv
+=> search/de-es Search de-es
+=> search/fi-fr Search fi-fr
+=> search/de-fi Search de-fi
+=> search/fr-pt Search fr-pt
+=> search/el-en Search el-en
+=> search/es-nl Search es-nl
+=> search/de-ru Search de-ru
+=> search/de-pt Search de-pt
+=> search/pl-sv Search pl-sv
+=> search/bg-en Search bg-en
+=> search/fi-sv Search fi-sv
+=> search/fr-ru Search fr-ru
+=> search/pl-ru Search pl-ru
+=> search/fr-ja Search fr-ja
+=> search/it-pl Search it-pl
+=> search/es-pl Search es-pl
+=> search/en-tr Search en-tr
+=> search/nl-sv Search nl-sv
+=> search/de-ja Search de-ja
+=> search/nl-pl Search nl-pl
+=> search/it-nl Search it-nl
+=> search/fi-pl Search fi-pl
+=> search/it-sv Search it-sv
+=> search/fi-nl Search fi-nl
+=> search/en-la Search en-la
+=> search/es-sv Search es-sv
+=> search/el-fr Search el-fr
+=> search/pl-pt Search pl-pt
+=> search/de-el Search de-el
+=> search/fi-it Search fi-it
+=> search/nl-pt Search nl-pt
+=> search/en-no Search en-no
+=> search/de-tr Search de-tr
+=> search/pt-sv Search pt-sv
+=> search/el-pl Search el-pl
+=> search/es-fi Search es-fi
+=> search/it-pt Search it-pt
+=> search/ru-sv Search ru-sv
+=> search/ja-pl Search ja-pl
+=> search/es-it Search es-it
+=> search/fi-pt Search fi-pt
+=> search/bg-de Search bg-de
+=> search/bg-fr Search bg-fr
+=> search/de-la Search de-la
+=> search/fr-tr Search fr-tr
+=> search/ja-nl Search ja-nl
+=> search/de-no Search de-no
+=> search/ja-sv Search ja-sv
+=> search/es-pt Search es-pt
+
