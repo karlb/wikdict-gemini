@@ -11,13 +11,10 @@ os.environ['OPENSHIFT_LOG_DIR'] = '/tmp'
 os.environ['OPENSHIFT_SECRET_TOKEN'] = 'secret123'
 
 from wikdict_web.lookup import LexicalEntryResult, LangResultList
+from wikdict_web.languages import language_names
 
 
 def lookup(from_lang, to_lang, query=None):
-    if len(from_lang) != 2 or len(to_lang) != 2:
-        print("50 Language specified in invalid format")
-        exit()
-
     templ_vals = {}
 
     if query:
@@ -75,6 +72,10 @@ def format_results(results: dict):
 try:
     query = os.environ.get("QUERY_STRING")
     lang1, lang2 = os.environ["PATH_INFO"].strip('/').split('-')
+    if len(lang1) != 2 or len(lang2) != 2:
+        print("50 Language specified in invalid format")
+        exit()
+
     if query:
             print("20 text/gemini\r")
             print(f'# WikDict Search Result for "{query}"')
@@ -82,7 +83,7 @@ try:
             for line in format_results(results):
                 print(line)
     else:
-            print("10 Enter a word in English or German\r")
+            print(f"10 Enter a word in {language_names[lang1]} or {language_names[lang2]}\r")
 except Exception as e:
     print('Error:', e)
     raise
