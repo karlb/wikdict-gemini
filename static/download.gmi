@@ -1,13 +1,13 @@
 # WikDict Downloads
 
-WikDict's mission is to bring you dictionaries that can be freely used, copied and modified without limiting you to using this web site. Therefore, you can download the dictionaries in different formats and use them according to the Creative Commons BY-SA[1] license.
+WikDict's mission is to bring you dictionaries that can be freely used, copied and modified without limiting you to using this web site. Therefore, you can download the dictionaries in different formats and use them according to the Creative Commons BY-SA license.
 
-=> https://creativecommons.org/licenses/by-sa/3.0/ 1: https://creativecommons.org/licenses/by-sa/3.0/
+=> https://creativecommons.org/licenses/by-sa/3.0/ Creative Commons BY-SA 3.0
 
-Please request new formats by creating a github issue[2], or just ask by e-mail[3].
+Please request new formats by creating a github issue, or just ask by e-mail.
 
-=> https://github.com/karlb/wikdict-gen/issues 2: https://github.com/karlb/wikdict-gen/issues
-=> mailto:karl@karl.berlin 3: mailto:karl@karl.berlin
+=> mailto:karl@karl.berlin karl@karl.berlin
+=> https://github.com/karlb/wikdict-web/issues GitHub issue tracker
 
 ## For End Users
 
@@ -15,21 +15,21 @@ Please request new formats by creating a github issue[2], or just ask by e-mail[
 
 The dictionaries in StarDict format[4] can be used with a wide variety of different dictionary applications, e.g.:
 
-=> http://download.wikdict.com/dictionaries/stardict/ 4: http://download.wikdict.com/dictionaries/stardict/
-
 * GoldenDict[5] for Linux, Windows
 * GoldenDict mobile[6] for Android (non-free)
 * WordMateX[7] for Android (non-free)
 * Dictionary Universal[8] for iOS (non-free)
 
-### Kobo E-Readers
-
-After downloading dictionaries for Kobo e-readers[9], connect your e-reader to your PC and copy the zip file(s) to the `.kobo/dict/` folder on your device. Then disconnect the device and enjoy the new dictionaries!
-
+=> http://download.wikdict.com/dictionaries/stardict/ 4: http://download.wikdict.com/dictionaries/stardict/
 => http://goldendict.org/ 5: http://goldendict.org/
 => http://goldendict.mobi/ 6: http://goldendict.mobi/
 => https://play.google.com/store/apps/details?id=org.d1scw0rld.wordmatex&amp;hl=en 7: https://play.google.com/store/apps/details?id=org.d1scw0rld.wordmatex&amp;hl=en
 => https://apps.apple.com/us/app/dictionary-universal/id312088272 8: https://apps.apple.com/us/app/dictionary-universal/id312088272
+
+### Kobo E-Readers
+
+After downloading dictionaries for Kobo e-readers[9], connect your e-reader to your PC and copy the zip file(s) to the `.kobo/dict/` folder on your device. Then disconnect the device and enjoy the new dictionaries!
+
 => http://download.wikdict.com/dictionaries/kobo/ 9: http://download.wikdict.com/dictionaries/kobo/
 
 ## For Developers
