@@ -1,89 +1,60 @@
 #!../venv/bin/python
 import os
-from itertools import groupby
-from collections import OrderedDict, namedtuple
 import sqlite3
-from typing import List
 
-DATA_DIR = '/home/karl/code/github/wikdict-web/data'
-os.environ['OPENSHIFT_DATA_DIR'] = DATA_DIR
-os.environ['OPENSHIFT_LOG_DIR'] = '/tmp'
-os.environ['OPENSHIFT_SECRET_TOKEN'] = 'secret123'
+from wikdict_query import combined_result
 
-from wikdict_web.lookup import LexicalEntryResult, LangResultList
-from wikdict_web.languages import language_names
+DICT_DIR = "/home/karl/code/github/wikdict-web/data/dict/"
+
+
+def print_result(r):
+    print("\n##", r["written_rep"], end="")
+
+    if r["part_of_speech"]:
+        print(f" ({r['part_of_speech']})")
+    else:
+        print()
+
+    for i, sg in enumerate(r["sense_groups"]):
+        print(f"### ", ", ".join(sg["translations"]))
+        for sense in sg["senses"]:
+            print("*", sense)
 
 
 def lookup(from_lang, to_lang, query=None):
-    templ_vals = {}
+    conn1 = sqlite3.connect(DICT_DIR + f"/{from_lang}-{to_lang}.sqlite3")
+    conn2 = sqlite3.connect(DICT_DIR + f"/{to_lang}-{from_lang}.sqlite3")
+    results = [
+            combined_result(conn1, query),
+            combined_result(conn2, query),
+        ]
 
-    if query:
-        results = sorted([
-            LangResultList(from_lang, to_lang, query),
-            LangResultList(to_lang, from_lang, query),
-        ], key=lambda x: x.score, reverse=True)
-        # if not results[0] and not results[1]:
-        #     templ_vals['did_you_mean'] = spellfix(from_lang, to_lang, query)
-        # else:
-        templ_vals['did_you_mean'] = []
+    for lang, result in zip((from_lang, to_lang), results):
+        print(f'# WikDict Search Result for "{query}" ({lang})')
+        if not result:
+            print('No results')
 
-        # wiktionary_links = OrderedDict(
-        #     (key, val)
-        #     for key, val in (
-        #         (lang, get_wiktionary_links(lang, query))
-        #         for lang in (from_lang, to_lang)
-        #     ) if val  # skip langs without results
-        # )
-        wiktionary_links = None
-    else:
-        results = None
-        wiktionary_links = None
-    return dict(
-        from_lang=from_lang,
-        to_lang=to_lang,
-        query=query,
-        results=results,
-        description=results[0].description if results else None,
-        page_name='lookup',
-        wiktionary_links=wiktionary_links,
-        **templ_vals
-    )
+        for lexentry in result.definitions:
+            print_result(lexentry)
 
-
-def format_results(results: dict):
-    for lang_result in results['results']:
-        if not len(lang_result):
-            continue
-
-        yield f'## {lang_result.from_lang} -> {lang_result.to_lang}'
-        for lexentry in lang_result:
-            for result in lexentry:
-                yield '### ' + result.written_rep
-                if result.sense_list:
-                    for sense in result.sense_list.split(' | '):
-                        yield sense
-                yield ' -> {}'.format(
-                    ', '.join(result.trans_list.split(' | '))
-                )
-                yield ''
-        yield ''
+        for idiom in result.idioms:
+            print("\n##", idiom["written_rep"])
+            for trans in idiom["translations"]:
+                print("*", trans)
 
 
 try:
     query = os.environ.get("QUERY_STRING")
-    lang1, lang2 = os.environ["PATH_INFO"].strip('/').split('-')
+    lang1, lang2 = os.environ["PATH_INFO"].strip("/").split("-")
     if len(lang1) != 2 or len(lang2) != 2:
         print("50 Language specified in invalid format")
         exit()
 
     if query:
-            print("20 text/gemini\r")
-            print(f'# WikDict Search Result for "{query}"')
-            results = lookup(lang1, lang2, query)
-            for line in format_results(results):
-                print(line)
+        print("20 text/gemini\r")
+        lookup(lang1, lang2, query)
     else:
-            print(f"10 Enter a word in {language_names[lang1]} or {language_names[lang2]}\r")
+        print(f"10 Enter a word in {lang1} or {lang2}\r")
 except Exception as e:
-    print('Error:', e)
+    print(f"50 Error: {repr(e)}\n")
     raise
