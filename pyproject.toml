@@ -1,0 +1,12 @@
+[project]
+name = "wikdict-gemini"
+version = "0.1.0"
+description = "Gemini frontent for Wikdict's bilingual dictionaries"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "wikdict-query",
+]
+
+[tool.uv.sources]
+wikdict-query = { git = "https://github.com/karlb/wikdict-web/", subdirectory = "wikdict-query" }

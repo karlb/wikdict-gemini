@@ -1,0 +1,18 @@
+version = 1
+requires-python = ">=3.11"
+
+[[package]]
+name = "wikdict-gemini"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "wikdict-query" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "wikdict-query", git = "https://github.com/karlb/wikdict-web/?subdirectory=wikdict-query" }]
+
+[[package]]
+name = "wikdict-query"
+version = "0.1.0"
+source = { git = "https://github.com/karlb/wikdict-web/?subdirectory=wikdict-query#f09edab25825134db548aad82b34c98c9d7dd304" }

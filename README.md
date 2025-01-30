@@ -6,6 +6,6 @@ If you want to run it yourself, you need a Gemini server with CGI support, I rec
 
 ## Local Testing
 
-* Run `./make_venv.sh` to create a python virtual environment with the required dependencies.
+* Run `uv sync` to create a python virtual environment with the required dependencies.
 * Adapt the `gmnisrv.ini` to you local paths and run `gmnisrv -C gmnisrv.ini`.
 * Test at [gemini://localhost](gemini://localhost)
