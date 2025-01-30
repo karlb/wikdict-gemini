@@ -16,7 +16,7 @@ def print_result(r):
         print()
 
     for i, sg in enumerate(r["sense_groups"]):
-        print(f"### ", ", ".join(sg["translations"]))
+        print("### ", ", ".join(sg["translations"]))
         for sense in sg["senses"] or []:
             print("*", sense)
 
